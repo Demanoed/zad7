@@ -15,6 +15,7 @@ namespace PovtorElem
         {
             ColorMess.Yellow("\n Введите колличество элементов из скольки будем генерировать варианты (от 2 до 5): ");
             n = Input.Check(2, 10);
+            elements = new int[n];
             for(int i = 0; i<n; i++)
             {
                 Console.Clear();
@@ -22,9 +23,19 @@ namespace PovtorElem
                 elements[i] = Input.Check(0, 9);
             }
         }
+        private static void PrintElements()
+        {
+            ColorMess.Cyan("\n Исходные элементы: ");
+            for (int i = 0; i < n; i++)
+                ColorMess.White(" " + elements[i]);
+            Console.WriteLine();
+        }
         static void Main()
         {
             Request();
+            Console.WriteLine();
+            PrintElements();
+            Message.GoToBack();
         }
     }
 }
